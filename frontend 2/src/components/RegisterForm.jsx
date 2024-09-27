@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Typography, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import api from '../api/api';
 
 const RegisterForm = () => {
@@ -32,6 +33,7 @@ const RegisterForm = () => {
         alignItems="center" 
         justifyContent="center" 
         minHeight="100vh"
+        sx={{ backgroundColor: '#f9f9f9', padding: '16px', borderRadius: '8px', boxShadow: 3 }} // Add styling to match the login form
       >
         <Typography variant="h4" gutterBottom>
           Register
@@ -84,11 +86,17 @@ const RegisterForm = () => {
             variant="contained" 
             color="primary" 
             fullWidth
-            style={{ marginTop: '16px' }}
+            sx={{ marginTop: '16px' }}
           >
             Register
           </Button>
         </form>
+        <Typography variant="body1" sx={{ mt: 2 }}>
+          Already have an account?{' '}
+          <Link to="/login" style={{ textDecoration: 'none', color: '#1976d2' }}>
+            Login here
+          </Link>
+        </Typography>
       </Box>
     </Container>
   );
